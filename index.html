@@ -1,40 +1,37 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html lang="fr">
 
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="img/flo-192.png">
+    <!-- Place favicon.ico in the root directory 
+    https://www.flaticon.com/free-icon/plant_2497597
+-->
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css">
 
-  <meta name="theme-color" content="#fafafa">
+    <meta name="theme-color" content="#fafafa">
+    <link rel="manifest" href="/manifest.webmanifest">
 </head>
 
-<body>
-  
-  <div id="container">
-    <!--[if IE]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
+<body >
+    <nav>
+        bill2
+    </nav>
+<h1>PWA</h1>
 
-    <!-- Add your site or application content here -->
-    <p>Hello world! </p>    
-  </div>
-  <script src="js/main.js"></script>
+<button type="button" onclick="document.querySelector('html').classList.toggle('dark')">Switch theme</button>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. 
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>-->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(function () { console.log("Service worker registered"); });
+        }
+    </script>
 </body>
 
 </html>

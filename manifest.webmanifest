@@ -1,0 +1,22 @@
+{
+    "name": "Bill PWA Website",
+    "short_name": "BillPWA",
+    "description" : "POC pour découvrir la puissance d'une PWA!",
+    "start_url": "/",
+    "display": "standalone",
+    "lang" : "fr",
+    "theme_color": "#ffffff",
+    "background_color":"salmon",
+    "icons": [
+      {
+        "src": "img/flo-192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "img/flo-512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
