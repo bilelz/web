@@ -2,17 +2,23 @@
     --body-bg-color : white;
     --body-color : black;
 }
+.revert{
+    --body-bg-color : black;
+    --body-color : white;
+}
 
 @media (prefers-color-scheme: dark) {
     :root{
         --body-bg-color : black;
         --body-color : white;
     }
+    
+    .revert{
+        --body-bg-color : white;
+        --body-color : black;
+    }
 }
-.dark{
-    --body-bg-color : black;
-    --body-color : white;
-}
+
 
 body {
     background-color: var(--body-bg-color);
