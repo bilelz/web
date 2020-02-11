@@ -1,37 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bilelz - PWA</title>
+    <meta name="description" content="Bilelz - progressive wep app" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="apple-touch-icon" href="img/flo-192.png">
+    <link rel="apple-touch-icon" href="img/flo-192.png" />
     <!-- Place favicon.ico in the root directory 
     https://www.flaticon.com/free-icon/plant_2497597
 -->
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css" />
 
-    <meta name="theme-color" content="#fafafa">
-    <link rel="manifest" href="manifest.webmanifest">
-</head>
+    <meta name="theme-color" content="#fafafa" />
+    <link rel="manifest" href="manifest.webmanifest" />
+  </head>
 
-<body >
+  <body>
     <nav>
-        bill2
-    </nav>
-<h1>PWA</h1>
+      <a href=".">Bilelz</a>
 
-<button type="button" onclick="document.querySelector('html').classList.toggle('revert')">Switch theme</button>
+      <button
+        type="button"
+        onclick="document.querySelector('html').classList.toggle('revert')"
+      >
+        <span class="visible-light">🌘 See the dark side</span>
+        <span class="visible-dark">💡 See the light</span>
+      </button>
+    </nav>
+    <h1>PWA</h1>
 
     <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
-                .then(function () { console.log("Service worker registered"); });
-        }
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js").then(function() {
+          console.log("Service worker registered");
+        });
+      }
     </script>
-</body>
-
+  </body>
 </html>

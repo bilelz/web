@@ -1,31 +1,73 @@
 :root {
-    --body-bg-color : white;
-    --body-color : black;
+  --body-bg-color: white;
+  --body-color: black;
 }
-.revert{
-    --body-bg-color : black;
-    --body-color : white;
+.revert {
+  --body-bg-color: black;
+  --body-color: white;
+}
+
+.visible-light,
+.revert .visible-dark {
+  font-size: 1.1rem;
+  display: inline-block;
+}
+.visible-dark,
+.revert .visible-light {
+  display: none;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root{
-        --body-bg-color : black;
-        --body-color : white;
-    }
-    
-    .revert{
-        --body-bg-color : white;
-        --body-color : black;
-    }
+  :root {
+    --body-bg-color: black;
+    --body-color: white;
+  }
+
+  .revert {
+    --body-bg-color: white;
+    --body-color: black;
+  }
+
+  .visible-light,
+  .revert .visible-dark {
+    display: none;
+  }
+  .visible-dark,
+  .revert .visible-light {
+    display: inline-block;
+  }
 }
 
-
 body {
-    background-color: var(--body-bg-color);
-    color: var(--body-color);
-    /* background: radial-gradient(black 15%, transparent 16%) 0 0,radial-gradient(black 15%, transparent 16%) 8px 8px,radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
-    background-color:#282828;
-    background-size:16px 16px; */
+  background-color: var(--body-bg-color);
+  color: var(--body-color);
+  /* background: radial-gradient(black 15%, transparent 16%) 0 0,radial-gradient(black 15%, transparent 16%) 8px 8px,radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px; 
+  background-color: #282828;
+  background-size: 16px 16px;*/
   transition: 1s;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-  }
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+a,
+a:visited {
+  color: var(--body-color);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  background-color: var(--body-bg-color);
+  color: var(--body-color);
+  border: 1px solid var(--body-color);
+  font-size: 1.1rem;
+  padding: 0.25rem 0.5rem;
+  transition: 0.3s;
+}
