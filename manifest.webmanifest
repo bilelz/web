@@ -2,7 +2,7 @@
     "name": "Bill PWA Website",
     "short_name": "BillPWA",
     "description" : "POC pour découvrir la puissance d'une PWA!",
-    "start_url": "",
+    "start_url": "./",
     "display": "standalone",
     "lang" : "fr",
     "theme_color": "#ffffff",
