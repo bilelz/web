@@ -1,15 +1,19 @@
 :root {
   --body-bg-color: white;
+  --body-bg-color-dark: black;
   --body-color: black;
-  --nav-bg-color : #ffffff2e;
-  --nav-shadow-color : #00000033;
-
+  --body-color-dark: white;
+  --nav-bg-color: #ffffff2e;
+  --nav-bg-color-dark: #ffffff2e;
+  --nav-shadow-color: #00000033;
+  --nav-shadow-color-dark: #ffffff78;
 }
+
 .revert {
-  --body-bg-color: black;
-  --body-color: white;
-  --nav-bg-color : #ffffff2e;
-  --nav-shadow-color : #ffffff78;
+  --body-bg-color: var(--body-bg-color-dark);
+  --body-color: var(--body-color-dark);
+  --nav-bg-color: var(--nav-bg-color-dark);
+  --nav-shadow-color: var(--nav-shadow-color-dark);
 }
 
 .visible-light,
@@ -24,13 +28,24 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --body-bg-color: black;
-    --body-color: white;
+    --body-bg-color: var(--body-bg-color-dark);
+    --body-bg-color-light: var(--body-bg-color);
+
+    --body-color: var(--body-color-dark);
+    --body-color-light: var(--body-bg-color);
+    revert
+    --nav-bg-color: var(--nav-bg-color-dark);
+    --nav-bg-color-light: var(--nav-bg-color);
+
+    --nav-shadow-color: var(--nav-shadow-color-dark);
+    --nav-shadow-color-light: var(--nav-shadow-color);
   }
 
   .revert {
-    --body-bg-color: white;
-    --body-color: black;
+    --body-bg-color: var(--body-bg-color-light);
+    --body-color: var(--body-color-light);
+    --nav-bg-color: var(--nav-bg-color-light);
+    --nav-shadow-color: var(--nav-shadow-color-light);
   }
 
   .visible-light,
@@ -58,17 +73,16 @@ body {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
- html{
+html {
   scroll-behavior: smooth;
 }
 
 a,
 a:visited {
   color: var(--body-color);
-   
 }
 
-nav{
+nav {
   position: fixed;
   width: 100%;
   left: 0;
@@ -76,20 +90,17 @@ nav{
   z-index: 1;
   background: var(--nav-bg-color);
   backdrop-filter: blur(5px);
-  BOX-SHADOW: 0 1em 1em var(--nav-shadow-color);
-
+  box-shadow: 0 1em 1em var(--nav-shadow-color);
 }
 
-nav a{
-  padding: .5em 1em;
+nav a {
+  padding: 0.5em 1em;
   display: inline-block;
 }
 
-nav a:nth-child(2){
+nav a:nth-child(2) {
   border-left: 1px solid var(--body-color);
   border-right: 1px solid var(--body-color);
-
-
 }
 
 nav > div {
@@ -105,18 +116,34 @@ nav > div {
 
 nav button {
   background-color: var(--body-bg-color);
-    color: var(--body-color);
-    /* border: 1px solid var(--body-color); */
-    font-size: 1rem;
-    /* padding: 0.25rem; */
-    transition: 0.3s;
-    box-shadow: 0 0 5px var(--nav-shadow-color);
-    /* border-radius: 1em; */
-    width: 1.75rem;
-    height: 1.75em;
-    display: flex;
-    text-align: center;
-    align-content: center;
-    justify-content: center;
-    border: none;
+  color: var(--body-color);
+  /* border: 1px solid var(--body-color); */
+  font-size: 1rem;
+  /* padding: 0.25rem; */
+  transition: 0.3s;
+  box-shadow: 0 0 5px var(--nav-shadow-color);
+  /* border-radius: 1em; */
+  width: 1.75rem;
+  height: 1.75em;
+  display: flex;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  border: none;
+}
+
+section h1.anchor{
+  padding-top: 2em;
+}
+
+iframe{
+  width: 100%;
+  border: none;
+  height: 250px;
+}
+
+@media (max-width: 900px){
+  iframe{
+    height: 900px;
+  }
 }

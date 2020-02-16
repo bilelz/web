@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blog @bilelz</title>
+    <style>
+      body {
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      }
+
+      ::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+      #template {
+        display: flex;
+        justify-content: center;
+      }
+      .post {
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        height: 250px;
+        width: 280px;
+        box-sizing: border-box;
+        vertical-align: top;
+      }
+      .post:nth-child(2) {
+        margin: 0 10px;
+      }
+      h1 {
+        color: white;
+        background-color: #0000009e;
+        display: inline-block;
+        padding: 0.5em;
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="template">
+      Loading from
+      <a href="http://blog.bilelz.fr" target="_parent">blog.bilelz.fr</a> ...
+    </div>
+
+    <template>
+      <a
+        class="post"
+        target="_parent"
+        href="${item.link[item.link.length-1].href}"
+        style="${(item.media$thumbnail) ? 'background-image:url('+item.media$thumbnail.url+')' : ''}"
+      >
+        <h1>${item.title.$t}</h1>
+        <div class="category">
+          ${(item.category) ? item.category.map(function(cat) {return
+          `<span>${cat.term}</span>`}).join(''):''}
+        </div>
+      </a>
+    </template>
+
+    <script>
+      let template = document.querySelector("template").innerHTML;
+      readData = function(data) {
+        console.log(data);
+        document.querySelector("#template").innerHTML = "";
+        let item;
+        const feed = data.feed.entry.slice(0, 3);
+        for (var i in feed) {
+          item = feed[i];
+          document.querySelector("#template").innerHTML += eval(
+            "`" + template + "`"
+          );
+        }
+      };
+    </script>
+    <script
+      src="https://blog.bilelz.fr/feeds/posts/default?alt=json&callback=readData"
+      defer
+    ></script>
+  </body>
+</html>
