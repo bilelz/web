@@ -1,10 +1,15 @@
 :root {
   --body-bg-color: white;
   --body-color: black;
+  --nav-bg-color : #ffffff2e;
+  --nav-shadow-color : #00000033;
+
 }
 .revert {
   --body-bg-color: black;
   --body-color: white;
+  --nav-bg-color : #ffffff2e;
+  --nav-shadow-color : #ffffff78;
 }
 
 .visible-light,
@@ -49,25 +54,69 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   max-width: 900px;
   margin: 0 auto;
-  padding: 1em;
+  padding: 3em 1em 1em 1em;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+ html{
+  scroll-behavior: smooth;
 }
 
 a,
 a:visited {
   color: var(--body-color);
+   
 }
 
-nav {
+nav{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background: var(--nav-bg-color);
+  backdrop-filter: blur(5px);
+  BOX-SHADOW: 0 1em 1em var(--nav-shadow-color);
+
+}
+
+nav a{
+  padding: .5em 1em;
+  display: inline-block;
+}
+
+nav a:nth-child(2){
+  border-left: 1px solid var(--body-color);
+  border-right: 1px solid var(--body-color);
+
+
+}
+
+nav > div {
+  max-width: 900px;
+  padding: 0 1em;
+
+  box-sizing: border-box;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-button {
+nav button {
   background-color: var(--body-bg-color);
-  color: var(--body-color);
-  border: 1px solid var(--body-color);
-  font-size: 1.1rem;
-  padding: 0.25rem 0.5rem;
-  transition: 0.3s;
+    color: var(--body-color);
+    /* border: 1px solid var(--body-color); */
+    font-size: 1rem;
+    /* padding: 0.25rem; */
+    transition: 0.3s;
+    box-shadow: 0 0 5px var(--nav-shadow-color);
+    /* border-radius: 1em; */
+    width: 1.75rem;
+    height: 1.75em;
+    display: flex;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    border: none;
 }

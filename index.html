@@ -15,27 +15,99 @@
 
     <meta name="theme-color" content="#fafafa" />
     <link rel="manifest" href="manifest.webmanifest" />
+    <script src="js/main.js" defer></script>
   </head>
 
-  <body>
+  <body id="home">
     <nav>
-      <a href=".">Bilelz</a>
+      <div>
+        <span>
+          <a href="./#home">Bilelz</a>
+          <a href="./#blog">Blog</a>
+          <a href="./#café">Coffee</a>
+        </span>
 
-      <button
-        type="button"
-        onclick="document.querySelector('html').classList.toggle('revert')"
-      >
-        <span class="visible-light">🌘 See the dark side</span>
-        <span class="visible-dark">💡 See the light</span>
-      </button>
+        <button
+          type="button"
+          onclick="document.querySelector('html').classList.toggle('revert')"
+        >
+          <span class="visible-light" title="See the dark side">🌘</span>
+          <span class="visible-dark" title="See the light">💡</span>
+        </button>
+      </div>
     </nav>
-    <h1>PWA</h1>
+    <section>
+      <h1>Hello, my name is Bilel</h1>
+
+      <h1>Net</h1>
+      @bilelz
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima nobis
+        magnam eveniet vero corrupti ducimus quis cupiditate nemo rem fuga
+        assumenda, vel odit laborum dolor quibusdam non inventore commodi nihil.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam earum esse
+        et suscipit, rem eligendi reprehenderit, veritatis odit, architecto
+        maiores numquam libero ab deserunt expedita. Soluta illum totam at
+        vitae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam earum esse
+        et suscipit, rem eligendi reprehenderit, veritatis odit, architecto
+        maiores numquam libero ab deserunt expedita. Soluta illum totam at
+        vitae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam earum esse
+        et suscipit, rem eligendi reprehenderit, veritatis odit, architecto
+        maiores numquam libero ab deserunt expedita. Soluta illum totam at
+        vitae?
+      </p>
+      <h1 id="blog">Blog</h1>
+      blogger items
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+        accusantium necessitatibus quo, obcaecati autem asperiores, veritatis
+        quae molestias fugit vel beatae molestiae possimus quasi earum? Iusto
+        quis non voluptatem ratione.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam earum esse
+        et suscipit, rem eligendi reprehenderit, veritatis odit, architecto
+        maiores numquam libero ab deserunt expedita. Soluta illum totam at
+        vitae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam earum esse
+        et suscipit, rem eligendi reprehenderit, veritatis odit, architecto
+        maiores numquam libero ab deserunt expedita. Soluta illum totam at
+        vitae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam earum esse
+        et suscipit, rem eligendi reprehenderit, veritatis odit, architecto
+        maiores numquam libero ab deserunt expedita. Soluta illum totam at
+        vitae?
+      </p>
+      <h1 id="café">Coffee</h1>
+      pay your Coffee
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quasi
+        reiciendis dolores architecto quibusdam, impedit sed facere labore? A
+        quam dicta eaque deleniti temporibus sequi totam quis quibusdam
+        molestias atque?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam earum esse
+        et suscipit, rem eligendi reprehenderit, veritatis odit, architecto
+        maiores numquam libero ab deserunt expedita. Soluta illum totam at
+        vitae?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam earum esse
+        et suscipit, rem eligendi reprehenderit, veritatis odit, architecto
+        maiores numquam libero ab deserunt expedita. Soluta illum totam at
+        vitae?
+      </p>
+    </section>
 
     <script>
       if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("sw.js").then(function() {
-          console.log("Service worker registered");
-        });
+        navigator.serviceWorker.register("sw.js").then(
+          function() {
+            console.log("Service worker registered");
+          },
+          function(error) {
+            console.log("CLIENT: service worker registration failure.", error);
+          }
+        );
+      } else {
+        console.log("CLIENT: service worker is not supported.");
       }
     </script>
   </body>
