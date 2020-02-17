@@ -11,36 +11,58 @@
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        text-align: center;
+        -webkit-font-smoothing: antialiased;
       }
 
       ::-webkit-scrollbar {
         width: 0;
         height: 0;
       }
-      #template {
-        display: flex;
-        justify-content: center;
-      }
+
       .post {
         display: inline-block;
-        background-repeat: no-repeat;
-        background-size: cover;
 
         height: 250px;
-        width: 280px;
+        width: 270px;
         box-sizing: border-box;
         vertical-align: top;
+        text-align: left;
+        overflow: hidden;
+        border-radius: 20px;
+        margin: 20px 0 0 0;
+        box-shadow: 0 0 10px #d4d4d4;
       }
       .post:nth-child(2) {
-        margin: 0 10px;
+        margin: 20px 20px 0 20px;
       }
-      h1 {
+
+      .post .img {
+        height: 150px;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .post .blabla {
+        height: 150px;
         color: white;
         background-color: #0000009e;
-        display: inline-block;
+        background-image: linear-gradient(to top left, #673ab7, #00bcd4);
         padding: 0.5em;
-        font-size: 1rem;
+        display: block;
+        margin-top: -20px;
+        border-radius: 20px;
+        transition: .3s;
       }
+
+      h1 {
+        font-size: 1rem;
+        margin: 0;
+      }
+
+      .post:hover .blabla, .post:focus .blabla{
+        transform: translateY(-30px);
+      }
+
     </style>
   </head>
   <body>
@@ -54,12 +76,17 @@
         class="post"
         target="_parent"
         href="${item.link[item.link.length-1].href}"
-        style="${(item.media$thumbnail) ? 'background-image:url('+item.media$thumbnail.url+')' : ''}"
       >
-        <h1>${item.title.$t}</h1>
-        <div class="category">
-          ${(item.category) ? item.category.map(function(cat) {return
-          `<span>${cat.term}</span>`}).join(''):''}
+        <div
+          class="img"
+          style="${(item.media$thumbnail) ? 'background-image:url('+item.media$thumbnail.url+')' : ''}"
+        ></div>
+        <div class="blabla">
+          <h1>${item.title.$t}</h1>
+          <div class="category">
+            ${(item.category) ? item.category.map(function(cat) {return
+            `<span>${cat.term}</span>`}).join(''):''}
+          </div>
         </div>
       </a>
     </template>
@@ -73,6 +100,16 @@
         const feed = data.feed.entry.slice(0, 3);
         for (var i in feed) {
           item = feed[i];
+          // search thumbmail in HTML content
+          if (!item.media$thumbnail) {
+            var tmp = document.createElement("div");
+            tmp.innerHTML = item.content.$t;
+            if (tmp.querySelectorAll("img").length > 0) {
+              item.media$thumbnail = {
+                url: tmp.querySelectorAll("img")[0].src
+              };
+            }
+          }
           document.querySelector("#template").innerHTML += eval(
             "`" + template + "`"
           );

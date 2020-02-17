@@ -48,36 +48,59 @@
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam earum esse
         et suscipit, rem eligendi reprehenderit, veritatis odit, architecto
         maiores numquam libero ab deserunt expedita. Soluta illum totam at
-        vitae?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam earum esse
-        et suscipit, rem eligendi reprehenderit, veritatis odit, architecto
-        maiores numquam libero ab deserunt expedita. Soluta illum totam at
-        vitae?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam earum esse
-        et suscipit, rem eligendi reprehenderit, veritatis odit, architecto
-        maiores numquam libero ab deserunt expedita. Soluta illum totam at
-        vitae?
+        vitae? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+        earum esse et suscipit, rem eligendi reprehenderit, veritatis odit,
+        architecto maiores numquam libero ab deserunt expedita. Soluta illum
+        totam at vitae? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Nam earum esse et suscipit, rem eligendi reprehenderit, veritatis odit,
+        architecto maiores numquam libero ab deserunt expedita. Soluta illum
+        totam at vitae?
       </p>
 
       <h1 id="blog" class="anchor">Blog</h1>
-      <iframe src="iframe/blog/" frameborder="0" loading="lazy"></iframe>
+      <iframe src="blog/" frameborder="0" loading="lazy"></iframe>
 
       <h1 id="café" class="anchor">Coffee</h1>
-      pay your Coffee
+      
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quasi
         reiciendis dolores architecto quibusdam, impedit sed facere labore? A
         quam dicta eaque deleniti temporibus sequi totam quis quibusdam
-        molestias atque?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam earum esse
-        et suscipit, rem eligendi reprehenderit, veritatis odit, architecto
-        maiores numquam libero ab deserunt expedita. Soluta illum totam at
-        vitae?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam earum esse
-        et suscipit, rem eligendi reprehenderit, veritatis odit, architecto
-        maiores numquam libero ab deserunt expedita. Soluta illum totam at
-        vitae?
+        molestias atque? Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Nam earum esse et suscipit, rem eligendi reprehenderit, veritatis
+        odit, architecto maiores numquam libero ab deserunt expedita. Soluta
+        illum totam at vitae? Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Nam earum esse et suscipit, rem eligendi reprehenderit, veritatis
+        odit, architecto maiores numquam libero ab deserunt expedita. Soluta
+        illum totam at vitae?
       </p>
+
+      <form
+        action="https://www.paypal.com/cgi-bin/webscr"
+        method="post"
+        target="_top"
+      >
+        <input type="hidden" name="cmd" value="_donations" /><input
+          type="hidden"
+          name="business"
+          value="N9M9SHGPGYGWJ"
+        /><input type="hidden" name="lc" value="FR" /><input
+          type="hidden"
+          name="item_name"
+          value="Bilelz"
+        /><input type="hidden" name="item_number" value="bilelzfr" /><input
+          type="hidden"
+          name="currency_code"
+          value="EUR"
+        /><input
+          type="hidden"
+          name="bn"
+          value="PP-DonationsBF:btn_donateCC_LG.gif:NonHosted"
+        />
+        <label for="amount">Pay me a Coffee</label>
+        <input type="number" name="amount" id="amount" min="0" value="1.50" step="0.5"/>
+        <input type="submit"/>
+      </form>
     </section>
 
     <script>

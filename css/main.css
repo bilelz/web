@@ -72,6 +72,7 @@ body {
   padding: 3em 1em 1em 1em;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 html {
   scroll-behavior: smooth;
@@ -141,9 +142,22 @@ iframe{
   border: none;
   height: 250px;
 }
+@media (min-width: 900px){
+  iframe{
+    height: 300px;
+  }
+}
 
-@media (max-width: 900px){
+@media (min-width:600px) and (max-width: 900px){
+  iframe{
+    height: 600px;
+  }
+}
+
+@media (min-width:0) and (max-width: 600px){
   iframe{
     height: 900px;
   }
 }
+
+
