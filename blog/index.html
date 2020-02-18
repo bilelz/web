@@ -82,7 +82,8 @@
 
   <template>
     <a class="post" target="_parent" href="${item.link[item.link.length-1].href}">
-      <div class="img" style="${(item.media$thumbnail) ? 'background-image:url('+item.media$thumbnail.url+')' : ''}">
+      <div class="img"
+        style="${(item.media$thumbnail) ? 'background-image:url('+item.media$thumbnail.url.replace('s72-c','s300-c')+')' : ''}">
       </div>
       <div class="blabla">
         <h1>${item.title.$t}</h1>

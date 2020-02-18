@@ -1,5 +1,5 @@
 var offlineList = ["./index.html", "./css/main.css", "./js/main.js"];
-var version = "v1.2::";
+var version = "v1.3::";
 
 //https://css-tricks.com/serviceworker-for-offline/
 
