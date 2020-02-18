@@ -41,23 +41,16 @@
     <h1 class="anchor">@bilelz</h1>
     <p>
       <div id="tweetLazyload">
-        <a class="twitter-timeline" href="https://twitter.com/bilelz" data-tweet-limit="1" data-theme="dark">
-          🐦 Twitter
-        </a>
+        <a class="twitter-timeline" href="https://twitter.com/bilelz" data-tweet-limit="1" data-theme="dark">🐦
+          Twitter</a>
+        <button type="button"
+          onclick="var script = document.createElement('script');script.src = 'https://platform.twitter.com/widgets.js';document.head.appendChild(script);this.style.display = 'none'">
+          Voir le dernier tweet
+        </button>
       </div> |
-      <a href="https://twitter.com/bilelz">🐱 Github</a> |
-      <a href="https://twitter.com/bilelz">🔨 Linkedin</a>
+      <a href="http://github.com/bilelz">🐱 Github</a> |
+      <a href="https://www.linkedin.com/in/bilelz">🔨 Linkedin</a>
     </p>
-
-
-
-    <button type="button"
-      onclick="var script = document.createElement('script');script.src = 'https://platform.twitter.com/widgets.js';document.head.appendChild(script);this.style.display = 'none'">
-      Voir les derniers tweets
-    </button>
-
-
-
 
     <h1 id="📝" class="anchor">📝 Blog</h1>
     <iframe id="blogFrame" src="blog/" frameborder="0" loading="lazy"></iframe>
@@ -70,7 +63,7 @@
         value="Bilelz" /><input type="hidden" name="item_number" value="bilelzfr" /><input type="hidden"
         name="currency_code" value="EUR" /><input type="hidden" name="bn"
         value="PP-DonationsBF:btn_donateCC_LG.gif:NonHosted" />
-      <label for="amount">Buy me a café</label>
+      <label for="amount">Buy me a <em>café</em></label>
       <input type="number" name="amount" id="amount" min="0" value="1.50" step="0.5" />
       <input type="submit" />
     </form>
