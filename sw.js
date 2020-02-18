@@ -1,5 +1,5 @@
 var offlineList = ["./index.html", "./css/main.css", "./js/main.js"];
-var version = 'v1::';
+var version = "v1.2::";
 
 //https://css-tricks.com/serviceworker-for-offline/
 
@@ -23,24 +23,27 @@ self.addEventListener("fetch", function(event) {
 
 //Cache, falling back to network
 // https://jakearchibald.com/2014/offline-cookbook/
-self.addEventListener('fetch', (event) => {
-  event.respondWith(async function() {
-    const response = await caches.match(event.request);
-    return response || fetch(event.request);
-  }());
+self.addEventListener("fetch", event => {
+  event.respondWith(
+    (async function() {
+      const response = await caches.match(event.request);
+      return response || fetch(event.request);
+    })()
+  );
 });
 
-self.addEventListener('activate', function activator (event) {
+self.addEventListener("activate", function activator(event) {
   event.waitUntil(
-    caches.keys().then(function (keys) {
+    caches.keys().then(function(keys) {
       // delete previous
-      return Promise.all(keys
-        .filter(function (key) {
-          return key.indexOf(version) !== 0;
-        })
-        .map(function (key) {
-          return caches.delete(key);
-        })
+      return Promise.all(
+        keys
+          .filter(function(key) {
+            return key.indexOf(version) !== 0;
+          })
+          .map(function(key) {
+            return caches.delete(key);
+          })
       );
     })
   );
