@@ -63,6 +63,7 @@ body {
   /* background: radial-gradient(black 15%, transparent 16%) 0 0,radial-gradient(black 15%, transparent 16%) 8px 8px,radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px; 
   background-color: #282828;
   background-size: 16px 16px;*/
+  -webkit-transition: 1s;
   transition: 1s;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -88,12 +89,14 @@ h2 {
 }
 
 nav {
+  position: -webkit-sticky;
   position: sticky;
   width: 100%;
   left: 0;
   top: 0;
   z-index: 1;
   background: var(--nav-bg-color);
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   box-shadow: 0 0 1em var(--nav-shadow-color);
   border-radius: 20px;
@@ -116,8 +119,11 @@ nav > div {
 
   box-sizing: border-box;
   margin: 0 auto;
+  display: -webkit-box;
   display: flex;
+  -webkit-box-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
   align-items: center;
 }
 
@@ -127,14 +133,17 @@ nav button {
   /* border: 1px solid var(--body-color); */
   font-size: 1rem;
   /* padding: 0.25rem; */
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   box-shadow: 0 0 5px var(--nav-shadow-color);
   /* border-radius: 1em; */
   width: 1.75rem;
   height: 1.75em;
+  display: -webkit-box;
   display: flex;
   text-align: center;
   align-content: center;
+  -webkit-box-pack: center;
   justify-content: center;
   border: none;
 }
@@ -148,7 +157,6 @@ section .anchor {
   border: none;
   height: 300px;
 }
-
 
 #tweetLazyload {
   max-width: 300px;
