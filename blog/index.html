@@ -57,14 +57,17 @@
     }
 
     .post {
-      display: inline-block;
+      display: inline-flex;
+      align-items: flex-end;
       scroll-snap-align: center;
+      justify-content: center;
 
       height: 250px;
       width: 270px;
       box-sizing: border-box;
       vertical-align: top;
       text-align: left;
+
       overflow: hidden;
       border-radius: 20px;
       box-shadow: 0 0 10px #9a9a9a;
@@ -83,30 +86,35 @@
       transform: translate(-20px);
     }
 
-    .post .img {
-      height: 150px;
+    .img {
+      /* height: 150px; */
       background-repeat: no-repeat;
       background-size: cover;
       background-color: midnightblue;
     }
 
     .post .blabla {
-      height: 150px;
       color: white;
-      background-color: #0000009e;
-      background-image: linear-gradient(to top left, #673ab7, #00bcd4);
-      padding: 10px;
+      background-color: #8686864a;
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
       display: block;
-      margin-top: -20px;
+      margin-bottom: -30px;
       border-radius: 20px;
       transition: 0.3s;
       white-space: normal;
+      padding: 10px;
+      padding-bottom: 40px;
+      width: 100%;
     }
 
     h1 {
+      background-image: linear-gradient(to top left, #673ab7, #00bcd4);
       font-size: 1rem;
       margin: 0;
       font-weight: normal;
+      padding: 10px;
+      border-radius: 20px;
     }
 
     .post:hover .blabla,
@@ -127,8 +135,9 @@
   </div>
 
   <template>
-    <a class="post" target="_parent" href="${item.link[item.link.length-1].href}">
-      <div class="img lazyload" data-bg="${(item.media$thumbnail) ? item.media$thumbnail.url : ''}"></div>
+    <a class="post img lazyload" target="_parent" href="${item.link[item.link.length-1].href}"
+      data-bg="${(item.media$thumbnail) ? item.media$thumbnail.url : ''}">
+      <!-- <div class="img lazyload" ></div> -->
       <div class="blabla">
         <h1>${item.title.$t}</h1>
         <div class="category">
