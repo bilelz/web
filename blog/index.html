@@ -118,7 +118,8 @@
     }
 
     .post:hover .blabla,
-    .post:focus .blabla {
+    .post:focus .blabla,
+    .post.active .blabla {
       transform: translateY(-30px);
     }
 
@@ -187,8 +188,24 @@
         document.querySelector("#template").innerHTML += eval(
           "`" + template + "`"
         );
+        document.querySelector('#template a:nth-child(1)').classList.add('active');
+        getActiveItem();
       }
     };
+
+    function getActiveItem(){
+      const slider = document.querySelector('#template');
+      const sliderItemWidth = document.querySelector('#template a').offsetWidth;
+      const centerIndex = Math.round((slider.offsetWidth/2) / sliderItemWidth);
+      console.log('centerIndex', centerIndex)
+      let activeItemIndex = 1;
+      slider.addEventListener('scroll',function() { 
+        activeItemIndex = Math.round((slider.scrollLeft) / sliderItemWidth) + centerIndex;
+        document.querySelector('#template a.active').classList.remove('active');
+        document.querySelector('#template a:nth-child('+activeItemIndex+')').classList.add('active');
+	      console.log('active : ', activeItemIndex);	
+      }, 200)
+    }
   </script>
   <script src="https://blog.bilelz.fr/feeds/posts/default?alt=json&callback=readData" defer></script>
 </body>
