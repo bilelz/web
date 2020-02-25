@@ -7,6 +7,8 @@
   --nav-bg-color-dark: #ffffff2e;
   --nav-shadow-color: #00000033;
   --nav-shadow-color-dark: #03a9f478;
+
+  --border-color : goldenrod;
 }
 
 .revert {
@@ -81,6 +83,7 @@ html {
 a,
 a:visited {
   color: var(--body-color);
+  text-decoration: none;
 }
 h1,
 h2 {
@@ -100,17 +103,18 @@ nav {
   backdrop-filter: blur(5px);
   box-shadow: 0 0 50px var(--nav-shadow-color);
   border-radius: 20px;
+  border: 5px solid var(--border-color);
 }
 
-nav a {
+nav a { 
   padding: 0.5em 1em;
   display: inline-block;
   text-shadow: 0 0px 10px var(--body-bg-color);
 }
 
-nav a:nth-child(2) {
-  border-left: 1px solid var(--nav-shadow-color);
-  border-right: 1px solid var(--nav-shadow-color);
+
+a:hover{
+  background-color: var(--border-color);
 }
 
 nav > div {
@@ -152,6 +156,19 @@ section .anchor {
   padding-top: 2em;
 }
 
+p a {
+  padding: .5em 1em;
+  border: 5px solid var(--border-color);
+  border-radius: 20px;
+  margin:0 1em 1em 0;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:focus{
+  text-decoration: underline;
+}
+
 #blogFrame {
   width: 100%;
   border: none;
@@ -162,4 +179,8 @@ section .anchor {
   max-width: 300px;
   display: inline-block;
   vertical-align: top;
+}
+
+.center {
+  text-align: center;
 }
