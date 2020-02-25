@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,11 +43,6 @@
       font-weight: lighter;
     }
 
-    /*       ::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
-      } */
-
     #template {
       white-space: nowrap;
       padding: 0 45px;
@@ -74,16 +68,6 @@
       transition: 0.3s;
       margin: 10px 0 10px -20px;
       position: relative;
-    }
-
-    /*  .post:nth-child(2),
-      .post:nth-child(5) {
-       margin: 20px 20px 0 20px;
-      } */
-
-    .post:hover,
-    .post:focus {
-      transform: translate(-20px);
     }
 
     .img {
@@ -117,10 +101,22 @@
       border-radius: 20px;
     }
 
+    .post:hover,
+    .post:focus,
+    .post.active {
+      transform: translate(-20px);
+    }
+
     .post:hover .blabla,
     .post:focus .blabla,
     .post.active .blabla {
       transform: translateY(-30px);
+    }
+
+    .post:hover+.post,
+    .post:focus+.post,
+    .post.active+.post {
+      transform: translateX(5px);
     }
 
     a {
@@ -138,7 +134,6 @@
   <template>
     <a class="post img lazyload" target="_parent" href="${item.link[item.link.length-1].href}"
       data-bg="${(item.media$thumbnail) ? item.media$thumbnail.url : ''}">
-      <!-- <div class="img lazyload" ></div> -->
       <div class="blabla">
         <h1>${item.title.$t}</h1>
         <div class="category">
@@ -188,23 +183,30 @@
         document.querySelector("#template").innerHTML += eval(
           "`" + template + "`"
         );
-        document.querySelector('#template a:nth-child(1)').classList.add('active');
-        getActiveItem();
       }
+      setTimeout(getActiveItem, 100);
     };
 
-    function getActiveItem(){
-      const slider = document.querySelector('#template');
-      const sliderItemWidth = document.querySelector('#template a').offsetWidth;
-      const centerIndex = Math.round((slider.offsetWidth/2) / sliderItemWidth);
-      console.log('centerIndex', centerIndex)
-      let activeItemIndex = 1;
-      slider.addEventListener('scroll',function() { 
-        activeItemIndex = Math.round((slider.scrollLeft) / sliderItemWidth) + centerIndex;
-        document.querySelector('#template a.active').classList.remove('active');
-        document.querySelector('#template a:nth-child('+activeItemIndex+')').classList.add('active');
-	      console.log('active : ', activeItemIndex);	
-      }, 200)
+    let slider, sliderItemWidth, centerIndex;
+
+    function getActiveItem() {
+      let timer = null;
+      slider = document.querySelector('#template');
+      sliderItemWidth = document.querySelector('#template a').offsetWidth;
+      centerIndex = Math.round((slider.offsetWidth / 2) / sliderItemWidth);
+      document.querySelector('#template a:nth-child(' + centerIndex + ')').classList.add('active');
+
+      slider.addEventListener('scroll', function () {
+        clearTimeout(timer)
+        timer = setTimeout(setActiveItem, 100);
+      })
+    }
+
+    function setActiveItem() {
+      const activeItemIndex = Math.round((slider.scrollLeft) / sliderItemWidth) + centerIndex;
+      document.querySelector('#template a.active').classList.remove('active');
+      document.querySelector('#template a:nth-child(' + activeItemIndex + ')').classList.add('active');
+      // console.log('active : ', activeItemIndex);
     }
   </script>
   <script src="https://blog.bilelz.fr/feeds/posts/default?alt=json&callback=readData" defer></script>
