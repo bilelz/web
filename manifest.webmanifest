@@ -1,6 +1,6 @@
 {
-  "name": "Bill PWA Website",
-  "short_name": "BillPWA",
+  "name": "👨‍💻 Bill PWA Website",
+  "short_name": "👨‍💻BillPWA",
   "description": "POC pour découvrir la puissance d'une PWA!",
   "start_url": "./",
   "display": "standalone",

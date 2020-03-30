@@ -1,215 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>blog @bilelz</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/plugins/unveilhooks/ls.unveilhooks.min.js"
-    defer></script>
-  <style>
-    html {
-      --scrollbarBG: #3f51b5;
-      --thumbBG: #ff5722;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blog @bilelz</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/plugins/unveilhooks/ls.unveilhooks.min.js" defer></script>
+    <style>
+      html {
+        --scrollbarBG: #3f51b5;
+        --thumbBG: #ff5722;
+      }
 
-    body {
-      scrollbar-width: thin;
-      scrollbar-color: var(--thumbBG) var(--scrollbarBG);
-    }
+      body {
+        scrollbar-width: thin;
+        scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+      }
 
-    ::-webkit-scrollbar {
-      width: 11px;
-    }
+      ::-webkit-scrollbar {
+        width: 11px;
+      }
 
-    ::-webkit-scrollbar-track {
-      background: var(--scrollbarBG);
-    }
+      ::-webkit-scrollbar-track {
+        background: var(--scrollbarBG);
+      }
 
-    ::-webkit-scrollbar-thumb {
-      background-color: var(--thumbBG);
-      border-radius: 6px;
-      border: 3px solid var(--scrollbarBG);
-    }
+      ::-webkit-scrollbar-thumb {
+        background-color: var(--thumbBG);
+        border-radius: 6px;
+        border: 3px solid var(--scrollbarBG);
+      }
 
-    body {
-      background-color: transparent;
-      padding: 0;
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-      text-align: center;
-      -webkit-font-smoothing: antialiased;
-      font-weight: lighter;
-    }
+      body {
+        background-color: transparent;
+        padding: 0;
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        text-align: center;
+        -webkit-font-smoothing: antialiased;
+        font-weight: lighter;
+      }
 
-    #template {
-      white-space: nowrap;
-      padding: 0 45px;
-      overflow-y: auto;
-      scroll-snap-type: x mandatory;
-    }
+      #template {
+        white-space: nowrap;
+        padding: 0 45px;
+        overflow-y: auto;
+        scroll-snap-type: x mandatory;
+      }
 
-    .post {
-      display: inline-flex;
-      align-items: flex-end;
-      scroll-snap-align: center;
-      justify-content: center;
+      .post {
+        display: inline-flex;
+        align-items: flex-end;
+        scroll-snap-align: center;
+        justify-content: center;
 
-      height: 250px;
-      width: 270px;
-      box-sizing: border-box;
-      vertical-align: top;
-      text-align: left;
+        height: 250px;
+        width: 270px;
+        box-sizing: border-box;
+        vertical-align: top;
+        text-align: left;
 
-      overflow: hidden;
-      border-radius: 20px;
-      box-shadow: 0 0 10px #9a9a9a;
-      transition: 0.3s;
-      margin: 10px 0 10px -20px;
-      position: relative;
-    }
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: 0 0 10px #9a9a9a;
+        transition: 0.3s;
+        margin: 10px 0 10px -20px;
+        position: relative;
+      }
 
-    .img {
-      /* height: 150px; */
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-color: midnightblue;
-    }
+      .img {
+        /* height: 150px; */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: midnightblue;
+      }
 
-    .post .blabla {
-      color: white;
-      background-color: #8686864a;
-      -webkit-backdrop-filter: blur(3px);
-      backdrop-filter: blur(3px);
-      display: block;
-      margin-bottom: -30px;
-      border-radius: 20px;
-      transition: 0.3s;
-      white-space: normal;
-      padding: 10px;
-      padding-bottom: 40px;
-      width: 100%;
-    }
+      .post .blabla {
+        color: white;
+        background-color: #8686864a;
+        -webkit-backdrop-filter: blur(3px);
+        backdrop-filter: blur(3px);
+        display: block;
+        margin-bottom: -30px;
+        border-radius: 20px;
+        transition: 0.3s;
+        white-space: normal;
+        padding: 10px;
+        padding-bottom: 40px;
+        width: 100%;
+      }
 
-    h1 {
-      background-image: linear-gradient(to top left, #673ab7, #00bcd4);
-      font-size: 1rem;
-      margin: 0;
-      font-weight: normal;
-      padding: 10px;
-      border-radius: 20px;
-    }
+      h1 {
+        background-image: linear-gradient(to top left, #673ab7, #00bcd4);
+        font-size: 1rem;
+        margin: 0;
+        font-weight: normal;
+        padding: 10px;
+        border-radius: 20px;
+      }
 
-    .post:hover,
-    .post:focus,
-    .post.active {
-      transform: translate(-20px);
-    }
+      .post:hover,
+      .post:focus,
+      .post.active {
+        transform: translate(-20px);
+      }
 
-    .post:hover .blabla,
-    .post:focus .blabla,
-    .post.active .blabla {
-      transform: translateY(-30px);
-    }
+      .post:hover .blabla,
+      .post:focus .blabla,
+      .post.active .blabla {
+        transform: translateY(-30px);
+      }
 
-    .post:hover+.post,
-    .post:focus+.post,
-    .post.active+.post {
-      transform: translateX(5px);
-    }
+      .post:hover + .post,
+      .post:focus + .post,
+      .post.active + .post {
+        transform: translateX(5px);
+      }
 
-    a {
-      text-decoration: none;
-    }
-  </style>
-</head>
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
 
-<body>
-  <div id="template">
-    Loading from
-    <a href="http://blog.bilelz.fr" target="_parent">blog.bilelz.fr</a> ...
-  </div>
+  <body>
+    <div id="template">
+      Loading from
+      <a href="http://blog.bilelz.fr" target="_parent">blog.bilelz.fr</a> ...
+    </div>
 
-  <template>
-    <a class="post img lazyload" target="_parent" href="${item.link[item.link.length-1].href}"
-      data-bg="${(item.media$thumbnail) ? item.media$thumbnail.url : ''}">
-      <div class="blabla">
-        <h1>${item.title.$t}</h1>
-        <div class="category">
-          ${(item.category) ? item.category.map(function(cat) {return
-          `<span>${cat.term}</span>`}).join(''):''}
+    <template>
+      <a
+        class="post img lazyload"
+        target="_parent"
+        href="${item.link[item.link.length-1].href}"
+        data-bg="${(item.media$thumbnail) ? item.media$thumbnail.url : ''}"
+      >
+        <div class="blabla">
+          <h1>${item.title.$t}</h1>
+          <div class="category">
+            ${(item.category) ? item.category.map(function(cat) {return `<span>${cat.term}</span>`}).join(''):''}
+          </div>
         </div>
-      </div>
-    </a>
-  </template>
+      </a>
+    </template>
 
-  <!--
+    <!--
             data-style="${(item.media$thumbnail) ? 'background-image:url('+item.media$thumbnail.url+')' : ''}">
   -->
 
-  <script>
-    window.lazySizesConfig = window.lazySizesConfig || {};
-    window.lazySizesConfig.loadMode = 1;
-    window.lazySizesConfig.expand = 0;
+    <script>
+      window.lazySizesConfig = window.lazySizesConfig || {};
+      window.lazySizesConfig.loadMode = 1;
+      window.lazySizesConfig.expand = 0;
 
-    let template = document.querySelector("template").innerHTML;
-    readData = function (data) {
-      console.log(data);
-      document.querySelector("#template").innerHTML = "";
-      let item;
-      const feed = data.feed.entry.slice(0, 10);
-      for (var i in feed) {
-        item = feed[i];
-        // search thumbmail in HTML content
-        if (!item.media$thumbnail) {
-          var tmp = document.createElement("div");
-          tmp.innerHTML = item.content.$t;
-          if (tmp.querySelectorAll("img").length > 0) {
+      let template = document.querySelector("template").innerHTML;
+      readData = function(data) {
+        console.log(data);
+        document.querySelector("#template").innerHTML = "";
+        let item;
+        const feed = data.feed.entry.slice(0, 10);
+        for (var i in feed) {
+          item = feed[i];
+          // search thumbmail in HTML content
+          if (!item.media$thumbnail) {
+            var tmp = document.createElement("div");
+            tmp.innerHTML = item.content.$t;
+            if (tmp.querySelectorAll("img").length > 0) {
+              // increase img size & ensure HTTPS
+              item.media$thumbnail = {
+                url: tmp
+                  .querySelectorAll("img")[0]
+                  .src.replace("s72-c", "s300-c")
+                  .replace("http://", "https://")
+              };
+            }
+          } else {
             // increase img size & ensure HTTPS
-            item.media$thumbnail = {
-              url: tmp
-                .querySelectorAll("img")[0]
-                .src.replace("s72-c", "s300-c")
-                .replace("http://", "https://")
-            };
+            item.media$thumbnail.url = item.media$thumbnail.url.replace("s72-c", "s300-c").replace("http://", "https://");
           }
-        } else {
-          // increase img size & ensure HTTPS
-          item.media$thumbnail.url = item.media$thumbnail.url
-            .replace("s72-c", "s300-c")
-            .replace("http://", "https://");
+          document.querySelector("#template").innerHTML += eval("`" + template + "`");
         }
-        document.querySelector("#template").innerHTML += eval(
-          "`" + template + "`"
-        );
+        setTimeout(getActiveItem, 100);
+      };
+
+      let slider, sliderItemWidth, centerIndex;
+
+      function getActiveItem() {
+        let timer = null;
+        slider = document.querySelector("#template");
+        sliderItemWidth = document.querySelector("#template a").offsetWidth;
+        centerIndex = Math.round(slider.offsetWidth / 2 / sliderItemWidth);
+        document.querySelector("#template a:nth-child(" + centerIndex + ")").classList.add("active");
+
+        // slider.addEventListener('scroll', function () {
+        //   clearTimeout(timer)
+        //   timer = setTimeout(setActiveItem, 100);
+        // })
       }
-      setTimeout(getActiveItem, 100);
-    };
 
-    let slider, sliderItemWidth, centerIndex;
-
-    function getActiveItem() {
-      let timer = null;
-      slider = document.querySelector('#template');
-      sliderItemWidth = document.querySelector('#template a').offsetWidth;
-      centerIndex = Math.round((slider.offsetWidth / 2) / sliderItemWidth);
-      document.querySelector('#template a:nth-child(' + centerIndex + ')').classList.add('active');
-
-      slider.addEventListener('scroll', function () {
-        clearTimeout(timer)
-        timer = setTimeout(setActiveItem, 100);
-      })
-    }
-
-    function setActiveItem() {
-      const activeItemIndex = Math.round((slider.scrollLeft) / sliderItemWidth) + centerIndex;
-      document.querySelector('#template a.active').classList.remove('active');
-      document.querySelector('#template a:nth-child(' + activeItemIndex + ')').classList.add('active');
-      // console.log('active : ', activeItemIndex);
-    }
-  </script>
-  <script src="https://blog.bilelz.fr/feeds/posts/default?alt=json&callback=readData" defer></script>
-</body>
-
+      function setActiveItem() {
+        // const activeItemIndex = Math.round((slider.scrollLeft) / sliderItemWidth) + centerIndex;
+        // document.querySelector('#template a.active').classList.remove('active');
+        // document.querySelector('#template a:nth-child(' + activeItemIndex + ')').classList.add('active');
+        // console.log('active : ', activeItemIndex);
+      }
+    </script>
+    <script src="https://blog.bilelz.fr/feeds/posts/default?alt=json&callback=readData" defer></script>
+  </body>
 </html>
