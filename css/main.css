@@ -288,6 +288,12 @@ a:focus {
   justify-content: space-around;
 }
 
+@media only screen and (max-width: 600px) {
+  #internets > div {
+    flex-direction: column;
+  }
+}
+
 .avatar {
   margin: 0 auto;
   width: 100px;
@@ -312,6 +318,7 @@ a:focus {
   background: url(../img/coffee.jpg);
   height: 250px;
   width: 270px;
+  box-sizing: border-box;
   background-size: cover;
   background-position: top center;
 }
