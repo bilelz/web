@@ -120,6 +120,14 @@
       a {
         text-decoration: none;
       }
+
+      .lazyload,
+      .lazyloading {
+        opacity: 0;
+      }
+      .lazyloaded {
+        opacity: 1;
+      }
     </style>
   </head>
 
@@ -155,7 +163,7 @@
       window.lazySizesConfig.expand = 0;
 
       let template = document.querySelector("template").innerHTML;
-      readData = function(data) {
+      readData = function (data) {
         console.log(data);
         document.querySelector("#template").innerHTML = "";
         let item;
@@ -169,10 +177,7 @@
             if (tmp.querySelectorAll("img").length > 0) {
               // increase img size & ensure HTTPS
               item.media$thumbnail = {
-                url: tmp
-                  .querySelectorAll("img")[0]
-                  .src.replace("s72-c", "s300-c")
-                  .replace("http://", "https://")
+                url: tmp.querySelectorAll("img")[0].src.replace("s72-c", "s300-c").replace("http://", "https://"),
               };
             }
           } else {

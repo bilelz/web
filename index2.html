@@ -13,7 +13,7 @@
     https://www.flaticon.com/free-icon/plant_2497597
 -->
 
-    <link rel="stylesheet" href="css/main2.css" />
+    <link rel="stylesheet" href="css/main.css" />
 
     <meta name="theme-color" content="#fafafa" />
     <link rel="manifest" href="manifest.webmanifest" />
@@ -21,34 +21,37 @@
   </head>
 
   <body id="🏡">
-    <nav class="sticky">
-      <div class="">
-        <span>
-          <a href="#🏡" class="" data-hover="Twitter 🐦">
-            <span>Bilelz</span>
-          </a>
-          <a href="#📝">Posts</a>
-          <a href="#☕">Coffee</a>
-        </span>
-
-        <button type="button" onclick="document.querySelector('html').classList.toggle('revert')">
-          <span class="visible-light" title="See the dark side">🌙</span>
-          <span class="visible-dark" title="See the light">💡</span>
-        </button>
+    <section class="center">
+      <h1>👋 <strong class="rainbow">Bonjour,</strong></h1>
+      <div class="avatar">
+        <img src="img/avatar.jpg" loading="lazy" width="100" height="100" alt="avatar" />
       </div>
-    </nav>
-    <section class="header">
-      <!-- <div class="container sticky"></div> -->
-
-      <div class="presentation container">
+      <p>
+        Je suis Bilel, developpeur web 👨‍💻
+      </p>
+    </section>
+    <div class="container">
+      <nav>
         <div>
-          <h1>👋 <strong class="rainbow">Bonjour,</strong></h1>
-          <div class="avatar">
-            <img src="img/avatar.jpg" loading="lazy" width="100" height="100" alt="avatar" />
-          </div>
-          <p>
-            Je suis Bilel, developpeur web 👨‍💻
-          </p>
+          <span>
+            <a href="./#🏡" class="" data-hover="Twitter 🐦">
+              <span>Bilelz</span>
+            </a>
+            <a href="./#📝">Posts</a>
+            <a href="./#☕">Coffee</a>
+          </span>
+
+          <button type="button" onclick="document.querySelector('html').classList.toggle('revert')">
+            <span class="visible-light" title="See the dark side">🌙</span>
+            <span class="visible-dark" title="See the light">💡</span>
+          </button>
+        </div>
+      </nav>
+      <section id="internets">
+        <h1 class="anchor">
+          @ Les internets
+        </h1>
+        <div>
           <p class="center">
             <a href="https://twitter.com/bilelz" class="cube" data-hover="🐦/bilelz" data-emoji="🐦">
               <span><span class="rainbow">Twitter</span></span>
@@ -60,35 +63,29 @@
               <span>Linkedin</span>
             </a>
           </p>
-        </div>
-        <div>
-          <h1 id="🐦" class="anchor">
-            🐦 Dernier tweet
-          </h1>
-          <div class="twitter">
-            <a class="twitter-timeline" href="https://twitter.com/bilelz" data-tweet-limit="1" data-theme="dark">🐦 Twitter</a>
-          </div>
-          <button
-            type="button"
-            id="showTweet"
-            onclick="var script = document.createElement('script');script.src = 'https://platform.twitter.com/widgets.js';document.head.appendChild(script);this.style.display = 'none'"
-          >
-            Voir le dernier tweet
-          </button>
-        </div>
-      </div>
-    </section>
 
-    <section id="internets">
-      <div class="">
+          <div>
+            <h1 id="🐦" class="anchor">
+              🐦 Dernier tweet
+            </h1>
+            <div class="twitter">
+              <a class="twitter-timeline" href="https://twitter.com/bilelz" data-tweet-limit="1" data-theme="dark">🐦 Twitter</a>
+            </div>
+            <button
+              type="button"
+              id="showTweet"
+              onclick="var script = document.createElement('script');script.src = 'https://platform.twitter.com/widgets.js';document.head.appendChild(script);this.style.display = 'none'"
+            >
+              Voir le dernier tweet
+            </button>
+          </div>
+        </div>
+
         <h1 id="📝" class="anchor">
           📝 Blog
         </h1>
         <iframe id="blogFrame" src="blog/" frameborder="0" loading="lazy"></iframe>
-      </div>
-    </section>
-    <section id="coffee">
-      <div class="container">
+
         <h1 id="☕" class="anchor">
           ☕ Coffee
         </h1>
@@ -110,16 +107,16 @@
           <input type="number" name="amount" id="amount" min="0" value="1.50" step="0.5" />
           <input type="submit" />
         </form>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("sw.js").then(
-          function () {
+          function() {
             console.log("Service worker registered");
           },
-          function (error) {
+          function(error) {
             console.log("CLIENT: service worker registration failure.", error);
           }
         );
